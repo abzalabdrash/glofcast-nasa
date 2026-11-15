@@ -1,0 +1,1 @@
+import{t as e}from"./react-DHsaPJjs.js";var t=e();function n(e=600){let n=(0,t.useRef)(null),[r,i]=(0,t.useState)(e);return(0,t.useLayoutEffect)(()=>{let e=n.current;if(!e)return;let t=()=>i(Math.max(120,Math.round(e.clientWidth)));t();let r=new ResizeObserver(t);return r.observe(e),()=>r.disconnect()},[]),[n,r]}export{n as t};

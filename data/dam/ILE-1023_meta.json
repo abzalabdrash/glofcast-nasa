@@ -1,0 +1,123 @@
+{
+ "lake_id": "ILE-1023",
+ "product": "NISAR L2 GUNW provisional (NISAR_L2_GUNW_PROVISIONAL_V1), HH, 20 m wrapped interferogram",
+ "orbit": "063D",
+ "pass": "descending",
+ "radar_looks": "left",
+ "ground_direction_to_sensor_deg": 290.7,
+ "incidence_deg": 41.736,
+ "wavelength_m": 0.243932,
+ "quantity": "line-of-sight displacement relative to the reference zone of H6 (ground 300 to 800 m from the lake, off glaciers, slope up to 20 degrees, coherence at least 0.5)",
+ "sign": "blue = towards the radar, red = away from the radar; the product documentation does not state the sign, the ISCE3 convention is assumed",
+ "colormap": "matplotlib RdBu",
+ "phase_png": {
+  "file": "ILE-1023_phase.png",
+  "pair": [
+   "2026-08-17T13:52:31",
+   "2026-08-29T13:52:31"
+  ],
+  "days": 12.0,
+  "range_mm": [
+   -20.0,
+   20.0
+  ],
+  "unit": "mm in this pair",
+  "dam_zone_mm": -26.2,
+  "dam_zone_coherence": 0.79,
+  "grey_where": "20 m coherence under 0.4",
+  "granule": "NISAR_L2_PR_GUNW_028_063_D_067_029_2000_SH_20260817T135231_20260817T135306_20260829T135231_20260829T135306_P05023_N_F_J_001",
+  "one_fringe_mm": 122.0
+ },
+ "stack_png": {
+  "file": "ILE-1023_stack.png",
+  "pairs": [
+   [
+    "2026-06-18T13:52:34",
+    "2026-06-30T13:52:34"
+   ],
+   [
+    "2026-06-30T13:52:34",
+    "2026-07-12T13:52:33"
+   ],
+   [
+    "2026-07-12T13:52:33",
+    "2026-07-24T13:52:32"
+   ],
+   [
+    "2026-08-17T13:52:31",
+    "2026-08-29T13:52:31"
+   ],
+   [
+    "2026-08-29T13:52:31",
+    "2026-09-10T13:52:31"
+   ],
+   [
+    "2026-09-10T13:52:31",
+    "2026-09-22T13:52:31"
+   ],
+   [
+    "2026-09-22T13:52:31",
+    "2026-10-04T13:52:31"
+   ],
+   [
+    "2026-10-04T13:52:31",
+    "2026-10-16T13:52:31"
+   ]
+  ],
+  "n_pairs": 8,
+  "range_mm": [
+   -12.0,
+   12.0
+  ],
+  "unit": "mm per 12 days, mean of the pairs",
+  "grey_where": "phase not consistent over the pairs (under 0.5): glacier ice, water, layover"
+ },
+ "dam_zone": {
+  "median_mm_per_12_days": -14.81,
+  "valid_pairs": 8,
+  "pairs_with_the_sign_of_the_median": 0.88,
+  "coherence": 0.79,
+  "control_band_plan_mm": [
+   -18.21,
+   7.34
+  ],
+  "control_band_off_glacier_mm": [
+   -3.54,
+   4.06
+  ],
+  "outline_in_image": "thin black line"
+ },
+ "image": {
+  "width_px": 792,
+  "height_px": 800,
+  "pixel_m": 20,
+  "px_per_pixel": 8,
+  "north_up": true,
+  "epsg": 32643,
+  "utm_bounds": [
+   698100.0,
+   4774660.0,
+   700080.0,
+   4776660.0
+  ],
+  "corners_lonlat_ul_ur_lr_ll": [
+   [
+    77.434993,
+    43.116769
+   ],
+   [
+    77.459308,
+    43.116249
+   ],
+   [
+    77.458588,
+    43.098256
+   ],
+   [
+    77.434279,
+    43.098776
+   ]
+  ]
+ },
+ "limits": "SI-assisted analysis, verdict not checked by a person. Motion of the ground, not a forecast of anything. One pair cannot show more than half a wavelength (61 mm)."
+}

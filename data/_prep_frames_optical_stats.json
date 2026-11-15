@@ -1,0 +1,10 @@
+{
+ "lakes": 117,
+ "entries": 3306,
+ "files": 2955,
+ "mb": 39.2,
+ "errors": 0,
+ "stopped_on_quota": false,
+ "error_samples": [],
+ "nisar_dates_total": 3306
+}

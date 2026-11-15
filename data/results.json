@@ -1,0 +1,408 @@
+{
+  "_comment": "Written by the app-ui session from app/CONTENT_FROM_MAIN.md (main session; additions of 15 Nov 2026 included). Numbers and intervals are copied as written there, as text, so that nothing is rounded again. Guesses are the predictions of research/04_analysis_plan.md.",
+  "verified": true,
+  "generated": "2026-11-15",
+  "verification_note": "Verified means recomputed by two separate implementations that agree. Checks by people were a glance check by two team members, not a validation.",
+  "headlines": [
+    {
+      "value": "648 of 657",
+      "label": "lakes seen by NISAR",
+      "line": "The L-band radar told a water-filled lake from lake-shaped patches of flat dry ground on 648 of the 657 lakes that had water looks, the smallest lakes of the catalogue included.",
+      "hypothesis": "H1"
+    },
+    {
+      "value": "96 against 30",
+      "label": "lakes with a false emptying step, C-band against L-band",
+      "line": "On 546 lakes that kept their water all season, the same rule raised a false emptying step on 96 lakes in C-band and on 30 lakes in L-band.",
+      "hypothesis": "H2"
+    },
+    {
+      "value": "653 of 659",
+      "label": "lakes seen by at least one radar",
+      "line": "NISAR alone detected 648 lakes and Sentinel-1 alone 641; either radar, 653 of the 659 lakes of the catalogue.",
+      "hypothesis": "H1"
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "H1",
+      "title": "Can each radar tell a lake from flat ground?",
+      "status": "verified",
+      "sentence": "Both radars separate a water-filled lake from lake-shaped patches of flat ground almost every time, and the smallest lakes of the catalogue are no exception.",
+      "guesses": [
+        {
+          "guess": "Both radars detect at least 90% of the lakes of 2 ha and more.",
+          "outcome": "Lakes of 2 ha and more: 389 (NISAR HH) and 390 (Sentinel-1 VV) of 395.",
+          "verdict": "held"
+        },
+        {
+          "guess": "Clearly fewer lakes are detected under 1 ha.",
+          "outcome": "It was not seen. Lakes under 1 ha (0.81 to 1.0 ha): NISAR HH 43 of 44, Sentinel-1 VV 44 of 44. The catalogue has no lake under 0.81 ha, so the size at which detection breaks lies below what it can show.",
+          "verdict": "wrong",
+          "verdict_text": "Wrong: it was not seen"
+        },
+        {
+          "guess": "The two bands differ by less than 0.03 in pooled AUC.",
+          "outcome": "NISAR HH 0.980, Sentinel-1 VV 0.972. Difference +0.0075 (-0.0001 to +0.0147).",
+          "verdict": "held"
+        },
+        {
+          "guess": "Either radar observes more lakes than each alone.",
+          "outcome": "Either radar: 653 of 659. NISAR HH 648 and Sentinel-1 VV 641 of 657 lakes with water looks.",
+          "verdict": "held"
+        }
+      ],
+      "table": {
+        "columns": [
+          "Measure",
+          "NISAR, L-band HH",
+          "Sentinel-1, C-band VV"
+        ],
+        "rows": [
+          [
+            "AUC, looks of lakes with water against looks of control patches",
+            "0.980 (0.972 to 0.986)",
+            "0.972 (0.964 to 0.980)"
+          ],
+          [
+            "Lakes detected at a 5% rate on controls, of 657 lakes with water looks",
+            "648 (98.6%, 97.4 to 99.4)",
+            "641 (97.6%)"
+          ],
+          [
+            "Lakes under 1 ha (0.81 to 1.0 ha)",
+            "43 of 44",
+            "44 of 44"
+          ],
+          [
+            "Lakes of 2 ha and more, of 395",
+            "389",
+            "390"
+          ],
+          [
+            "Looks of lakes with optical water within 5 days",
+            "8,653",
+            "7,952"
+          ],
+          [
+            "Looks of 311 control patches",
+            "9,203",
+            "8,970"
+          ]
+        ]
+      },
+      "points": [
+        "AUC difference: +0.0075 (-0.0001 to +0.0147).",
+        "Either radar: 653 of 659 lakes."
+      ]
+    },
+    {
+      "id": "H2",
+      "title": "Lakes that did not change: which radar cries wolf?",
+      "status": "verified",
+      "sentence": "On 546 lakes that kept their water all season, the C-band radar raised a false 'emptying' step on 96 lakes, the L-band radar on 30.",
+      "guesses": [
+        {
+          "guess": "Requiring both radars to show a step of the same sign within 7 days at least halves the false steps.",
+          "outcome": "Asking both radars to agree within 7 days keeps 46 of the 182 Sentinel-1 steps (25%, 16 to 35) and 33 of the 52 NISAR steps (63%, 47 to 78).",
+          "verdict": "partly",
+          "verdict_text": "Held for C-band, not for L-band"
+        }
+      ],
+      "table": {
+        "columns": [
+          "Measure",
+          "NISAR, L-band",
+          "Sentinel-1, C-band"
+        ],
+        "rows": [
+          [
+            "Lakes with a false emptying step, co-polarised channel (HH, VV), of 546 lakes",
+            "30",
+            "96"
+          ],
+          [
+            "False emptying steps, co-polarised channel",
+            "42 (26 to 61)",
+            "136 (111 to 166)"
+          ],
+          [
+            "Pairs of looks tested",
+            "14,644",
+            "13,938"
+          ],
+          [
+            "Either polarisation",
+            "52 steps on 35 lakes",
+            "182 steps on 124 lakes"
+          ],
+          [
+            "Steps kept when both radars must agree within 7 days",
+            "33 of 52 (63%, 47 to 78)",
+            "46 of 182 (25%, 16 to 35)"
+          ],
+          [
+            "Looks of control patches that are dark (3 dB or more below their surroundings)",
+            "about 7% of HH looks",
+            "about 12% of VV looks"
+          ]
+        ]
+      },
+      "points": [
+        "Same rule, same season, co-polarised channel for both radars."
+      ]
+    },
+    {
+      "id": "H2",
+      "title": "Lakes that did empty in 2026",
+      "status": "people",
+      "status_note": "Round 1: two team members looked at every case by eye. Round 2: one team member (14 of 15 blind controls right) read the cases they had not agreed on; a second reader of round 2 is still owed.",
+      "sentence": "After two rounds of the check by people, 15 of the 17 events are real and 2 false (TER-0106, ZHE-0434).",
+      "guesses": [
+        {
+          "guess": "Each radar detects at least 80% of the real optical events of 1 ha and more.",
+          "outcome": "Events of 1 ha and more (n / NISAR / Sentinel-1 / either). Proposed by the assistant: 8 / 7 / 7 / 8. Confirmed by both readers of round 1: 6 / 4 / 5 / 5. After round 2: 11 / 7 / 7 / 8.",
+          "verdict": "open",
+          "verdict_text": "Open: it depends on the set, and both sets are small"
+        },
+        {
+          "guess": "Median time between the look before and the look after: about 12 days for NISAR, about 5 for Sentinel-1, about 3 for both radars, above 10 for optics.",
+          "outcome": "Proposed set: NISAR 9.6 days, Sentinel-1 12.0, both 8.5, optics 5.0 where it could bracket at all. Confirmed set: NISAR 10.8 days, Sentinel-1 12.0, both 10.0, optics 5.0. That was wrong under our own rule, which never mixes orbits.",
+          "verdict": "wrong"
+        }
+      ],
+      "points": [
+        "The three events that both radars missed after round 2 (TER-0113, KYR-0243, TER-0007) are exactly the three on which readers and assistant did not agree that water was lost.",
+        "On two of the 15 real events the reader and the assistant disagree (TER-0113 and KYR-0243: the assistant read no loss of water); both readings are kept.",
+        "Under 1 ha: 0 of 4 with a step in the window, on every set. A full lake of that size is seen; its draining is not caught by a 3 dB step."
+      ]
+    },
+    {
+      "id": "H3",
+      "title": "Does lingering snow fool one band more than the other?",
+      "status": "verified",
+      "status_note": "Null result.",
+      "sentence": "From 18 June on, flat ground did not look dark more often in late June than in August, in either band.",
+      "guesses": [
+        {
+          "guess": "In late June dry control patches look dark more often than in August, and this June excess is larger at C-band than at L-band.",
+          "outcome": "C-band minus L-band difference of the June excess: +0.004 (-0.016 to +0.025).",
+          "verdict": "not_seen",
+          "verdict_text": "Not seen: a null result"
+        }
+      ],
+      "points": [
+        "Nothing is known about May and early June: NISAR data over these mountains start on 18 June 2026."
+      ]
+    },
+    {
+      "id": "H6",
+      "title": "Does the ground at a dam move?",
+      "status": "verified",
+      "status_note": "A negative result at catalogue scale. The cases were seen by the assistant, not checked by a person.",
+      "sentence": "NISAR interferometry measured the ground at the dams of 591 lakes to a few millimetres per 12 days. Dams do not move more often than the ground next to them, but the same data show which landform beside a single lake is creeping, how fast, and in which months.",
+      "guesses": [
+        {
+          "guess": "More than 5% of dams move.",
+          "outcome": "The dam moves at 28 of 591 measurable lakes (4.7%); the same rule flags 28 of 307 control patches (9.1%).",
+          "verdict": "wrong"
+        },
+        {
+          "guess": "Moving dams are more common among lakes that empty.",
+          "outcome": "Lakes that empty against stable lakes: 10 of 25 against 13 of 525 by the plan's rule. This is not a property of dams: 8 of the 10 lie on glacier ice, where the 20 m phase cannot be read. Off glacier ice it is 4 of 12 against 55 of 460 (risk ratio 2.8, interval 0.6 to 5.7): twelve lakes cannot settle it.",
+          "verdict": "wrong",
+          "verdict_text": "Wrong: not a property of dams"
+        }
+      ],
+      "points": [
+        "Read by touching 21.5 GB instead of 386 GB of files: 26,885 windows of 659 lakes and 311 control patches, 11 orbits.",
+        "Off glacier ice the band of neighbouring ground is about -3.5 to +4 mm per 12 days; 65 of 491 lakes (13.2%) and 26 of 253 control patches (10.3%) lie beyond it in at least one orbit.",
+        "ZHE-0396: a moraine complex between a glacier front and the lake lowers by 3.6 to 7.4 mm per 12 days along the line of sight in four orbits, near zero in late June and mid-October.",
+        "ZHE-0241: a lobe 450 m long at the outlet, up to 18 to 21 mm per 12 days in mid-August. ZHE-0189: a slope creeping towards the lake, opposite signs from the two look directions.",
+        "Limits: one summer without a winter reference (the yearly thaw of the ground looks the same); line-of-sight values, not ground displacement; no layover mask in the product; provisional product."
+      ]
+    },
+    {
+      "id": "H7",
+      "title": "Replay of 2026: would a watch list have named the lakes that emptied?",
+      "status": "verified",
+      "sentence": "A list written before the season would have named 7 of the 12 lakes that emptied, on 16 lakes. Most of that comes from the plainest rule: this lake emptied in most earlier summers.",
+      "guesses": [
+        {
+          "guess": "Flagged lakes empty far more often than unflagged ones, but most emptyings come without a flag.",
+          "outcome": "Record-fill rule: 4 lakes flagged by 15 July of 651 that could be; 3 emptied 0 to 25 days after the flag, against 9 of 647 unflagged lakes. All four lie on one glacier (Southern Inylchek), where 3 of 10 unflagged ponds emptied too: counted by glacier it is one observation.",
+          "verdict": "held",
+          "verdict_text": "Held, but on one glacier"
+        }
+      ],
+      "points": [
+        "\"Due\" rule (emptied in at least 4 of the 7 summers 2019 to 2025): 13 lakes, 5 emptied in 2026, against 7 of 638.",
+        "Three ways (proposed / confirmed by both readers of round 1 / after round 2): flagged ponds that emptied 3 of 4, 1 of 4, 3 of 4; emptied lakes named by either list 7 of 12, 2 of 8, 7 of 15.",
+        "Limit: one season, one glacier carries the flags, and some \"due\" lakes above Almaty may be lowered by the agency every year. Nothing here forecasts an outburst."
+      ]
+    },
+    {
+      "id": "H5",
+      "title": "Water that is in no catalogue",
+      "status": "people",
+      "status_note": "Exploratory. Seen as lakes by team members; never called validated.",
+      "sentence": "Radar alone cannot find unknown lakes. With optics added no water body new in 2026 was found, and all 105 candidates missing from our catalogue were seen as lakes by team members.",
+      "guesses": [],
+      "points": [
+        "A wall-to-wall NISAR search over the Kyrgyz range and the Ile Alatau re-found 15 of 15 and 62 of 64 catalogued lakes, but radar alone left hundreds of false candidates (glacier ice, flat grass, bare sediment).",
+        "105 of 105 candidates seen as lakes: 57 by two team members at a glance, 48 by one team member in the slower round with blind controls. Of the 60 that are in neither inventory: 21 and 39.",
+        "Two of them (A0657 and A0598, both in the Kyrgyz range, 0.36 and 0.44 ha) hold water on the 2025 photo and none on the 2026 photo; NISAR saw water there from 18 June to 26 July 2026 and the optical scenes are dry by late August. They are seasonal ponds that emptied in 2026 and are in no catalogue."
+      ]
+    },
+    {
+      "id": "Check",
+      "title": "The check by people, two rounds",
+      "status": "people",
+      "sentence": "Two team members looked at every case by eye. Where both agreed we say so; where they did not, the verdict stays the assistant's and is marked as not confirmed.",
+      "guesses": [],
+      "points": [
+        "Round 1: two team members answered all 123 items of the checking page by eye: 105 water bodies missing from the catalogue, the 17 optical events of 2026, and one Landsat scene at Merzbacher. They agree weakly (Cohen's kappa 0.27 on the events, 0.28 on the missing water bodies); the water bodies were answered at a median of 1.4 and 1.6 seconds each, with no blind controls: a glance check.",
+        "Round 2 showed only the cases the first two readers had not agreed on, mixed with 15 blind controls with a known answer; buttons unlocked after 5 seconds. One team member (the Team Owner) has done it so far and got 14 of the 15 controls right, so his answers count. He knew that the items were candidates, so this reading is not blind.",
+        "Merzbacher, Landsat 8 of 18 July: the round 2 reader saw no open water (round 1: one yes, one no).",
+        "Still owed: a second, independent reader of round 2, so that \"one team member\" becomes two.",
+        "The rule for reading the answers of both rounds was written into the plan before any answer was read."
+      ]
+    },
+    {
+      "id": "H8",
+      "title": "Ice beside the lake",
+      "status": "verified",
+      "status_note": "Mostly a statement about the product.",
+      "sentence": "NISAR's offset product measured the glaciers beside 12 lakes, all on five large valley glaciers. For the small glaciers of the ranges above Almaty it could not: their motion in 12 days is not readable in this product, which does not mean the ice is still.",
+      "guesses": [
+        {
+          "guess": "The noise floor of the offsets on stable ground is near 0.05 m per day.",
+          "outcome": "On ground that does not move the offsets are very quiet: noise floor 0.012 m per day (descending) and 0.017 (ascending), three to four times below the 0.05 we guessed.",
+          "verdict": "wrong"
+        },
+        {
+          "guess": "A control zone on rock can stand in for ice.",
+          "outcome": "It cannot: the ice surface itself changes in 12 summer days.",
+          "verdict": "wrong"
+        }
+      ],
+      "points": [
+        "292 of 659 lakes have glacier ice within 300 m; 232 of them have a glacier large enough for the smallest tracking window (about 300 by 150 m).",
+        "The plan's rule as written flags 218 of 222 measurable lakes, and that is not motion: on glacier ice the raw offsets mostly fail and a failed zone reads as metres per day. After three checks (speeds that are physically possible, two viewing directions agreeing on the flow direction, flow pointing downhill) 12 lakes on 5 glaciers remain, 0.04 to 0.24 m per day in the radar plane; all 12 flow directions point down the glacier.",
+        "206 lakes: \"ice offsets not coherent\"; 60: glacier too small for the window; 10: no stable ground within 2 km; 4: below the noise floor; 367: no glacier within 300 m.",
+        "Check where speeds are published: at the Merzbacher ice dam the glacier zone gives 0.16 to 0.20 m per day in three orbits; the trunk of the Southern Inylchek flows at 0.23 to 0.29 m per day (published central flow 0.25 to 0.35, Mayer et al. 2008).",
+        "Lakes that emptied in 2026: five are ponds on the Southern Inylchek tongue; against the few stable cells there are, the pairs that span their emptying are faster than the season median 10 times of 25, against 4 of 105 for other pairs. Exploratory, small numbers.",
+        "NISAR has no earlier season, so nothing here says \"faster than usual\"."
+      ]
+    },
+    {
+      "id": "H9",
+      "title": "Snow and lake ice in two radars",
+      "status": "verified",
+      "status_note": "Partly a negative result.",
+      "sentence": "Under autumn snow the ground looks about 1 dB darker to the C-band radar and almost unchanged to the L-band radar. Whether that also holds for wet spring snow could not be measured: NISAR began on 18 June, when the snow was gone.",
+      "guesses": [
+        {
+          "guess": "Autumn snow shifts neither band by 1 dB.",
+          "outcome": "Autumn snow on flat ground against the same patch in snow-free July and August: NISAR HH -0.14 dB (-0.23 to -0.04; 362 looks on 190 patches), Sentinel-1 VV -1.03 dB (-1.12 to -0.90; 558 looks on 242 patches).",
+          "verdict": "wrong",
+          "verdict_text": "Wrong for C-band, which shifts by 1.0 dB"
+        },
+        {
+          "guess": "The radars date the freeze-up inside the optical bracket.",
+          "outcome": "The radars do not show the autumn change inside the optical bracket better than chance (45 to 55% of lakes pass; a shuffled series passes 68 to 72%).",
+          "verdict": "wrong"
+        }
+      ],
+      "points": [
+        "On the same 174 patches C-band lies 0.74 dB lower than L-band (0.62 to 0.84).",
+        "Spring snow (June): Sentinel-1 VV -2.38 dB (-3.20 to -1.89), 28 looks on 21 patches. L-band: one look. The comparison the plan asked for cannot be made.",
+        "The published -3 dB wet-snow threshold caught 10 of 28 June snow looks in C-band VV and 17 of 28 in VH, and 5 of 373 snow looks of NISAR HH over the whole season.",
+        "A lake under ice or snow is brighter against its shore than open water in both bands: AUC 0.81 (NISAR HH, 1,036 looks under ice) and 0.78 (Sentinel-1 VV, 1,211 looks).",
+        "Dates come from optics, as brackets between two clear scenes: the autumn change to ice or snow has a bracket on 507 lakes, median width 5 days. Most lakes were already open and snow-free when the season began.",
+        "The agency's statements of June and July agree with what optics can see: 9 of 34 Ile Alatau lakes under ice or snow in early June, none below 3,300 m; 99 of 101 free of ice in 4 to 15 July.",
+        "Limits: one season; snow labels from Sentinel-2 at 20 m on clear days only; NISAR starts on 18 June."
+      ],
+      "figure": {
+        "file": "snow/snow_ice_calendar.png",
+        "alt": "Calendar of 659 lakes by elevation through the 2026 season: open water against ice or snow, from Sentinel-2.",
+        "caption": "659 lakes sorted by elevation, open water against ice or snow through the season, from clear Sentinel-2 scenes."
+      }
+    },
+    {
+      "id": "People",
+      "title": "People below a lake",
+      "status": "verified",
+      "status_note": "Exposure, not risk.",
+      "sentence": "For every lake we traced where its water would run and counted who lives within 1 km of that river in the first 50 km. It is a map of who lives downstream, not of who would be flooded.",
+      "guesses": [],
+      "table": {
+        "columns": [
+          "Region",
+          "Lakes",
+          "Median people within 1 km of the river, first 50 km"
+        ],
+        "rows": [
+          [
+            "Ile Alatau",
+            "121",
+            "1,772"
+          ],
+          [
+            "Kyrgyz range",
+            "23",
+            "5,321"
+          ],
+          [
+            "Terskey",
+            "103",
+            "11"
+          ],
+          [
+            "Zhetysu Alatau",
+            "412",
+            "35"
+          ]
+        ]
+      },
+      "points": [
+        "Method after Taylor et al. (2023): flow path on MERIT Hydro, people from GHS-POP 2025 (100 m). Checked by the main session with its own recount on 22 lakes: largest difference 1.1%.",
+        "149 of 659 lakes have 1,000 people or more; 24 further lakes (23 in the Zhetysu Alatau, ILE-0947) have a count that rests on one implausible cell of the population grid and are not quoted.",
+        "Almost nobody lives close: within the first 10 km the median is 0 in every region and no lake has more than 350 people. Where people are reached it is far down the valley (median 31 km to the first 1,000 in the Ile Alatau).",
+        "Largest: ILE-0879 and ILE-0970 (about 410 thousand each, paths through Almaty), KYR-0114 (about 340 thousand, through Bishkek). Each person counted once: 1.09 million below the lakes of the Ile Alatau. Numbers of different lakes are never added: lakes of one valley share the same people.",
+        "Lake No. 19 (ILE-0876) drains down the Left Talgar to the town of Talgar: 44 thousand people within 50 km, the first 1,000 at 31 km. ILE-0962 drains down the Right Aksai and the Aksai to the western edge of Almaty: 48 thousand within 50 km, the first 1,000 at 21 km.",
+        "Limits: most outburst floods do not travel 50 km; the population grid is a model; a path on a 90 m grid."
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "value": "96 against 30",
+      "label": "lakes with a false emptying step, C-band against L-band",
+      "line": "On 546 lakes that kept their water all season, the same rule raised a false emptying step on 96 lakes in C-band and on 30 lakes in L-band.",
+      "link": "results",
+      "link_text": "All results"
+    },
+    {
+      "value": "8 hours",
+      "label": "into the drainage of Lake Merzbacher, NISAR passed",
+      "line": "Sentinel-2 saw open water with ice floes on the morning of 17 July; NISAR, eight hours later, found about a third of the dark water it had seen on 5 July.",
+      "link": "merzbacher",
+      "link_text": "See the frames"
+    },
+    {
+      "value": "21.5 GB, not 386 GB",
+      "label": "read by windows instead of whole files",
+      "line": "The ground at the dams was measured from 26,885 windows of the NISAR files. The season of radar brightness cost 13.4 GB over the wire against 408.5 GB for the same granules as whole files.",
+      "link": "method",
+      "link_text": "How the data were read"
+    },
+    {
+      "value": "105 of 105",
+      "label": "water bodies missing from the catalogue, seen as lakes by team members",
+      "line": "57 by two team members at a glance, 48 by one team member in a slower round with blind controls. Two are seasonal ponds that emptied in 2026.",
+      "link": "results",
+      "link_text": "All results"
+    }
+  ]
+}

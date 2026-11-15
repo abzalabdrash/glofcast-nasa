@@ -1,0 +1,185 @@
+{
+ "counts": {
+  "weeks": 19,
+  "lake_weeks_listed": 147,
+  "lakes_ever_listed": 38,
+  "listed_that_emptied": 8,
+  "listed_that_lost_water_late": 20,
+  "listed_that_kept_water": 4,
+  "listed_unknown_after": 6,
+  "one_radar_steps": 499,
+  "called_lakes": 16,
+  "called_that_emptied": 7,
+  "called_that_lost_water_late": 2,
+  "called_that_kept_water": 3,
+  "called_unknown": 4,
+  "observed_lakes": 22
+ },
+ "lakes_ever_listed": [
+  "ILE-0861",
+  "ILE-0928",
+  "ILE-0962",
+  "ILE-1011",
+  "ILE-1037",
+  "TER-0012",
+  "TER-0013",
+  "TER-0014",
+  "TER-0017",
+  "TER-0018",
+  "TER-0072",
+  "TER-0073",
+  "TER-0106",
+  "TER-0115",
+  "TER-0121",
+  "TER-0123",
+  "TER-0136",
+  "TER-0140",
+  "ZHE-0209",
+  "ZHE-0299",
+  "ZHE-0309",
+  "ZHE-0339",
+  "ZHE-0385",
+  "ZHE-0394",
+  "ZHE-0397",
+  "ZHE-0412",
+  "ZHE-0420",
+  "ZHE-0425",
+  "ZHE-0440",
+  "ZHE-0447",
+  "ZHE-0481",
+  "ZHE-0494",
+  "ZHE-0518",
+  "ZHE-0535",
+  "ZHE-0538",
+  "ZHE-0544",
+  "ZHE-0565",
+  "ZHE-0567"
+ ],
+ "called": {
+  "ILE-0962": "lost_water_late",
+  "ILE-1011": "lost_water_late",
+  "TER-0012": "emptied",
+  "TER-0013": "emptied",
+  "TER-0014": "emptied",
+  "TER-0017": "emptied",
+  "TER-0018": "emptied",
+  "TER-0072": "kept_water",
+  "TER-0073": "unknown",
+  "TER-0115": "kept_water",
+  "TER-0121": "emptied",
+  "TER-0123": "unknown",
+  "ZHE-0339": "unknown",
+  "ZHE-0518": "emptied",
+  "ZHE-0535": "kept_water",
+  "ZHE-0565": "unknown"
+ },
+ "observed": {
+  "ILE-0861": "lost_water_late",
+  "ILE-0928": "lost_water_late",
+  "ILE-1037": "lost_water_late",
+  "TER-0106": "unknown",
+  "TER-0136": "lost_water_late",
+  "TER-0140": "lost_water_late",
+  "ZHE-0209": "lost_water_late",
+  "ZHE-0299": "emptied",
+  "ZHE-0309": "kept_water",
+  "ZHE-0385": "lost_water_late",
+  "ZHE-0394": "lost_water_late",
+  "ZHE-0397": "lost_water_late",
+  "ZHE-0412": "lost_water_late",
+  "ZHE-0420": "lost_water_late",
+  "ZHE-0425": "lost_water_late",
+  "ZHE-0440": "lost_water_late",
+  "ZHE-0447": "lost_water_late",
+  "ZHE-0481": "lost_water_late",
+  "ZHE-0494": "lost_water_late",
+  "ZHE-0538": "unknown",
+  "ZHE-0544": "lost_water_late",
+  "ZHE-0567": "lost_water_late"
+ },
+ "pairs": 96,
+ "names": {
+  "osm": 24,
+  "agency": 2,
+  "near_name": 11
+ },
+ "pending_tables": {
+  "ice": false,
+  "snow": false,
+  "people": false
+ },
+ "dam_images": {
+  "ILE-1023": [
+   "dam/ILE-1023_meta.json",
+   "dam/ILE-1023_phase.png",
+   "dam/ILE-1023_stack.png"
+  ],
+  "ZHE-0241": [
+   "dam/ZHE-0241_meta.json",
+   "dam/ZHE-0241_phase.png",
+   "dam/ZHE-0241_stack.png"
+  ],
+  "ZHE-0396": [
+   "dam/ZHE-0396_meta.json",
+   "dam/ZHE-0396_phase.png",
+   "dam/ZHE-0396_stack.png"
+  ]
+ },
+ "states": {
+  "water": {
+   "kept its water": 527,
+   "changed, not classed": 88,
+   "lost water late in the season": 26,
+   "emptied in 2026": 13,
+   "no loss of water seen": 3,
+   "fuller than in any earlier year": 1,
+   "not seen by either radar": 1
+  },
+  "history": {
+   "no emptying in M judged summers": 556,
+   "record too short": 36,
+   "emptied in N of M (due)": 13,
+   "emptied in N of M (not due)": 54
+  },
+  "dam": {
+   "not measurable": 59,
+   "within the band of neighbouring ground": 491,
+   "ground at the dam moves": 67,
+   "dam zone on glacier ice, phase not readable": 42
+  },
+  "ice": {
+   "not ice-adjacent": 367,
+   "ice offsets not coherent": 206,
+   "glacier too small for the tracking window": 60,
+   "below the noise floor": 4,
+   "not covered": 10,
+   "moves measurably": 12
+  },
+  "snow": {
+   "autumn bracket; open water bracket; tone neutral": 203,
+   "autumn bracket; open water before_season; tone neutral": 275,
+   "autumn bracket; open water never_open_water; tone neutral": 29,
+   "autumn after_season; open water bracket; tone neutral": 57,
+   "autumn after_season; open water before_season; tone unknown": 88,
+   "autumn after_season; open water never_open_water; tone unknown": 5,
+   "autumn after_season; open water before_season; tone neutral": 2
+  },
+  "people": {
+   "few or no people within 1 km of the river below the lake (under 100)": 438,
+   "about N people (1,000 or more)": 149,
+   "about N people (100 to 999)": 48,
+   "not quoted": 1,
+   "few or no people within 1 km of the river below the lake (one cell)": 23
+  },
+  "agency": {
+   "possibly a lake with siphon work reported in 2026": 1,
+   "siphon work reported in 2026": 2
+  }
+ },
+ "reasons": {
+  "due": 73,
+  "record_fill": 25,
+  "both_radars_filling": 5,
+  "both_radars_emptying": 50
+ }
+}
