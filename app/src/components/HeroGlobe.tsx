@@ -39,7 +39,6 @@ interface Props {
 const GIBS =
   'https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/BlueMarble_ShadedRelief_Bathymetry/default/GoogleMapsCompatible_Level8/{z}/{y}/{x}.jpeg'
 const EOX = 'https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2024_3857/default/g/{z}/{y}/{x}.jpg'
-const TERRARIUM = 'https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png'
 
 const STYLE: StyleSpecification = {
   version: 8,
@@ -69,14 +68,6 @@ const STYLE: StyleSpecification = {
         'Sentinel-2 cloudless 2024 by <a href="https://eox.at/" target="_blank" rel="noopener">EOX</a> ' +
         '(<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>), ' +
         'contains modified Copernicus Sentinel data',
-    },
-    relief: {
-      type: 'raster-dem',
-      tiles: [TERRARIUM],
-      tileSize: 256,
-      maxzoom: 12,
-      encoding: 'terrarium',
-      attribution: 'Elevation: Terrain Tiles (Mapzen, open data on AWS)',
     },
     lakes: { type: 'geojson', data: { type: 'FeatureCollection', features: [] } },
     paths: {
@@ -205,7 +196,6 @@ export function HeroGlobe({ lakes, paths, progress, target, reducedMotion, onRea
     m.getCanvas().setAttribute('aria-hidden', 'true')
     m.getCanvas().tabIndex = -1
 
-    let terrainOn = false
     // starts where the bundled still of the globe was taken, so the cross-fade does not jump
     let spin = 31
     let last = performance.now()
@@ -246,16 +236,8 @@ export function HeroGlobe({ lakes, paths, progress, target, reducedMotion, onRea
         bearing: lerp(0, -8, e),
         padding,
       })
-      // relief only where it can be seen; it costs tiles and frames at globe scale
-      if (ready.current) {
-        if (!terrainOn && zoom > 5.5) {
-          m.setTerrain({ source: 'relief', exaggeration: 1.35 })
-          terrainOn = true
-        } else if (terrainOn && zoom < 5) {
-          m.setTerrain(null)
-          terrainOn = false
-        }
-      }
+      // No 3D relief here: switching it on and off as the scroll crossed a zoom threshold made the map redraw every
+      // tile (black squares, the Earth "reloading"). The shading of the imagery carries the relief.
       raf = requestAnimationFrame(frame)
     }
     raf = requestAnimationFrame(frame)
@@ -278,9 +260,6 @@ export function HeroGlobe({ lakes, paths, progress, target, reducedMotion, onRea
         for (let xi = x(tx - dLon); xi <= x(tx + dLon); xi++)
           for (let yi = y(ty + north); yi <= y(ty - south); yi++) {
             new Image().src = EOX.replace('{z}', String(z)).replace('{x}', String(xi)).replace('{y}', String(yi))
-            const t = new Image()
-            t.crossOrigin = 'anonymous'
-            t.src = TERRARIUM.replace('{z}', String(z)).replace('{x}', String(xi)).replace('{y}', String(yi))
           }
       }
     })
