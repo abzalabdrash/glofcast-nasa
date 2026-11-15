@@ -63,7 +63,7 @@ const STYLE: StyleSpecification = {
       type: 'raster',
       tiles: [EOX],
       tileSize: 256,
-      minzoom: 5,
+      minzoom: 2,
       maxzoom: 14,
       attribution:
         'Sentinel-2 cloudless 2024 by <a href="https://eox.at/" target="_blank" rel="noopener">EOX</a> ' +
@@ -87,14 +87,26 @@ const STYLE: StyleSpecification = {
   },
   layers: [
     { id: 'space', type: 'background', paint: { 'background-color': '#05080a' } },
-    { id: 'gibs', type: 'raster', source: 'gibs', paint: { 'raster-opacity': ['interpolate', ['linear'], ['zoom'], 5.5, 1, 7, 0], 'raster-fade-duration': 200 } },
+    // Blue Marble stays under the mountain imagery for the whole descent, toned towards it: where a Sentinel-2 tile
+    // has not arrived yet, or the far ground is beyond its tiles, the Earth is seen instead of black
+    {
+      id: 'gibs',
+      type: 'raster',
+      source: 'gibs',
+      paint: {
+        'raster-opacity': 1,
+        'raster-saturation': ['interpolate', ['linear'], ['zoom'], 5, 0, 7, -0.35],
+        'raster-brightness-max': ['interpolate', ['linear'], ['zoom'], 5, 1, 7, 0.72],
+        'raster-fade-duration': 200,
+      },
+    },
     {
       id: 'eox',
       type: 'raster',
       source: 'eox',
       minzoom: 5,
       paint: {
-        'raster-opacity': ['interpolate', ['linear'], ['zoom'], 5.5, 0, 7, 1],
+        'raster-opacity': ['interpolate', ['linear'], ['zoom'], 5.2, 0, 6.4, 1],
         'raster-saturation': -0.3,
         'raster-brightness-max': 0.8,
         'raster-contrast': 0.08,
@@ -252,15 +264,19 @@ export function HeroGlobe({ lakes, paths, progress, target, reducedMotion, onRea
     // imagery instead of black
     m.once('idle', () => {
       const [tx, ty] = latest.current.target
-      for (const z of [6, 7]) {
+      for (const z of [5, 6, 7]) {
+        // the tilted view looks far to the north: wider and deeper at the coarse levels
+        const dLon = z === 7 ? 5 : 9
+        const north = z === 7 ? 4 : 8
+        const south = z === 7 ? 2 : 3
         const n = 2 ** z
         const x = (lon: number) => Math.floor(((lon + 180) / 360) * n)
         const y = (lat: number) => {
           const r = (lat * Math.PI) / 180
           return Math.floor(((1 - Math.log(Math.tan(r) + 1 / Math.cos(r)) / Math.PI) / 2) * n)
         }
-        for (let xi = x(tx - 3.6); xi <= x(tx + 3.6); xi++)
-          for (let yi = y(ty + 2); yi <= y(ty - 1.6); yi++) {
+        for (let xi = x(tx - dLon); xi <= x(tx + dLon); xi++)
+          for (let yi = y(ty + north); yi <= y(ty - south); yi++) {
             new Image().src = EOX.replace('{z}', String(z)).replace('{x}', String(xi)).replace('{y}', String(yi))
             const t = new Image()
             t.crossOrigin = 'anonymous'
