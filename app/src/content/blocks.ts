@@ -71,7 +71,8 @@ export const BLOCKS: Block[] = [
       'Two team members answered all 123 items of a checking page by eye: 105 water bodies missing from the catalogue, the 17 optical events of 2026, and one Landsat scene at Merzbacher. The rule for reading their answers was written into the plan before any score was recomputed.',
       'An event is confirmed real when both said yes and confirmed false when both said no. Otherwise it is disputed and keeps the verdict proposed by the assistant, marked "not confirmed". Every score that rests on events is given on the proposed set and on the set confirmed by both people.',
       'The two agree weakly (Cohen\'s kappa 0.27 on the events, 0.28 on the missing water bodies). The water bodies were answered at a median of 1.4 and 1.6 seconds each and the page had no blind controls. It is a glance check by two team members, not a validation.',
-      'In a second round only the cases the first two readers had not agreed on were shown again, mixed with 15 blind controls with a known answer, and the buttons unlocked after 5 seconds. One team member has read it so far and got 14 of the 15 controls right, so his answers count; he knew the items were candidates, so this reading is not blind. A second, independent reader of round 2 is still owed.',
+      'In a second round five team members looked again, slowly, at every case the first two readers had not agreed on. Hidden among them were 15 pictures with a known answer, and the buttons unlocked after 5 seconds; every reader got 14 or 15 of the 15 right. A case is confirmed only when every reader says yes and rejected only when every reader says no; this rule was written into the plan before any answer of round 2 existed.',
+      'After round 2: of 105 candidate water bodies missing from the catalogue, 67 were seen as lakes by every reader and 92 by a majority; none was rejected by every reader. Of the 17 optical events, 11 are real by every reader who saw them. These are checks by team members, not by glaciologists.',
     ],
   },
   {
@@ -111,7 +112,7 @@ export const BLOCKS: Block[] = [
     title: 'Use of SI (AI) tools',
     // Draft by the main session: the team must confirm that it is true before the site is published.
     text: [
-      'We used an SI coding and research assistant (Claude) to search the literature, write the data-reading and analysis scripts, build this application and draft texts. The subject, the study area and the decisions were the team\'s. Every number on this site is printed by a script in the repository; scripts carry a header saying they are SI-assisted. No image on this site is SI-generated: all are satellite data or charts drawn from data.',
+      'We used an SI coding and research assistant (Claude) to search the literature, write the data-reading and analysis scripts, build this application and draft texts. The subject, the study area and the decisions were the team\'s. Every number on this site is printed by a script of the project; scripts carry a header saying they are SI-assisted. No image on this site is SI-generated: all are satellite data or charts drawn from data.',
     ],
   },
   {
