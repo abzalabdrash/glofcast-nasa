@@ -37,6 +37,22 @@ html.is-night body {
 .sky__still.is-gone {
   opacity: 0;
 }
+/* With motion the still is not shown: it was taken at one screen size and the live globe sits elsewhere on any
+   other, so the change read as a second Earth appearing. The live globe fades in by itself instead. */
+.sky:not(.sky--still) .sky__still {
+  display: none;
+}
+.sky:not(.sky--still) .sky__globe .heroglobe {
+  animation: globe-in 1.2s ease 0.5s both;
+}
+@keyframes globe-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .sky__shade {
   pointer-events: none;
   background:
@@ -71,7 +87,7 @@ html.is-night body {
   right: 0;
   top: 50%;
   transform: translateY(calc(-46% - var(--p) * 60px));
-  opacity: calc(1 - var(--p) * 3.2);
+  opacity: calc(1 - var(--p) * 1.9);
   pointer-events: none;
 }
 .sky__copy > * {
