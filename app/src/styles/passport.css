@@ -1,0 +1,447 @@
+/* SI-assisted (Claude), NASA Space Apps 2026 */
+/* The lake passport: one object. A portrait, a name, one sentence, seven lines in a fixed order. */
+
+.passport {
+  display: block;
+  padding-top: 10px;
+}
+
+/* ---------- portrait ---------- */
+.portrait {
+  flex: none;
+  margin: 0;
+}
+.portrait__img {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var(--frame);
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  box-shadow:
+    0 0 0 1px rgb(12 17 19 / 0.5),
+    0 6px 16px -8px rgb(12 17 19 / 0.5);
+  transition: background-position 0s;
+}
+.portrait__img.is-wait {
+  aspect-ratio: 1;
+  background: rgb(12 17 19 / 0.12);
+  box-shadow: none;
+}
+.portrait__img svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.portrait__img polygon {
+  fill: none;
+  stroke: #ff6a45;
+  stroke-width: 1.4;
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+.portrait figcaption {
+  margin-top: 5px;
+  font-size: 11.5px;
+  line-height: 1.2;
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+.portrait--thumb {
+  width: 60px;
+}
+.portrait--thumb .portrait__img {
+  border-radius: 8px;
+}
+.portrait--thumb polygon {
+  stroke-width: 1;
+}
+.portrait--card {
+  width: 104px;
+}
+.portrait--hero {
+  width: 100%;
+}
+
+/* ---------- head ---------- */
+.passport__head {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.passport__id {
+  min-width: 0;
+  flex: 1;
+  padding-top: 2px;
+}
+.passport__title {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2rem, 1.6rem + 1.2vw, 2.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+.passport__meta {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 0;
+  font-size: 13.5px;
+  line-height: 1.4;
+  color: var(--ink-3);
+}
+.passport__meta > span:not(:last-child)::after {
+  content: '·';
+  margin: 0 7px;
+  color: var(--ink-4);
+}
+.passport__lede {
+  margin-top: 18px;
+  font-family: var(--display);
+  font-size: 1.42rem;
+  line-height: 1.24;
+  letter-spacing: -0.003em;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+.passport__tally {
+  margin-top: 18px;
+  padding-bottom: 8px;
+  font-size: 13.5px;
+  color: var(--ink-3);
+}
+.passport__tally b {
+  font-weight: 650;
+  color: var(--look);
+}
+
+/* ---------- the seven lines ---------- */
+.plines {
+  border-top: 1px solid var(--line-strong);
+}
+.pline {
+  border-bottom: 1px solid var(--line);
+}
+.pline__row {
+  display: grid;
+  grid-template-columns: 14px 122px minmax(0, 1fr) 16px;
+  align-items: baseline;
+  gap: 2px 10px;
+  width: 100%;
+  min-height: 46px;
+  padding: 11px 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  font-size: 14.5px;
+  line-height: 1.35;
+  border-radius: 8px;
+}
+.pline__row .tone {
+  align-self: center;
+  justify-self: center;
+}
+.pline__name {
+  font-weight: 600;
+  color: var(--ink-2);
+}
+.pline__state {
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+.pline__chev {
+  align-self: center;
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: var(--ink-4);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.2s var(--ease-out);
+}
+.pline.is-open .pline__chev {
+  transform: rotate(180deg);
+}
+@media (hover: hover) and (pointer: fine) {
+  .pline__row:hover .pline__chev {
+    stroke: var(--ink);
+  }
+  .pline__row:hover .pline__name,
+  .pline__row:hover .pline__state {
+    color: var(--ink);
+  }
+}
+/* asks for a look: inked, and its sentence is on the face of the passport */
+.pline--attention .pline__name {
+  color: var(--ink);
+  font-weight: 700;
+}
+.pline--attention .pline__state {
+  color: var(--ink);
+  font-weight: 600;
+}
+.pline--attention .pline__row {
+  padding-bottom: 4px;
+}
+.pline__why {
+  margin: 0 26px 12px 24px;
+  font-family: var(--display);
+  font-size: 1.2rem;
+  line-height: 1.27;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+/* could not be measured: pale */
+.pline--unknown .pline__name,
+.pline--unknown .pline__state {
+  color: var(--ink-3);
+}
+.pline--unknown .pline__name {
+  font-weight: 500;
+}
+
+.pline__fold[hidden] {
+  display: none;
+}
+.pline__more {
+  padding: 2px 26px 16px 24px;
+  display: grid;
+  gap: 12px;
+}
+@starting-style {
+  .pline.is-open .pline__more {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+.pline__more {
+  transition:
+    opacity 0.2s var(--ease-out),
+    transform 0.2s var(--ease-out);
+}
+.pline__line {
+  font-size: 15px;
+  line-height: 1.48;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+.pline__q {
+  font-size: 13.5px;
+  color: var(--ink-3);
+}
+.pline__check {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--ink-3);
+  text-wrap: pretty;
+  overflow-wrap: anywhere;
+}
+.pfacts {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+.pfacts > div {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 12px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 13.5px;
+  line-height: 1.4;
+}
+.pfacts dt {
+  color: var(--ink-3);
+}
+.pfacts dd {
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+.plinks {
+  display: grid;
+  gap: 4px;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.plinks a {
+  color: var(--ink-2);
+}
+.pfig__title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink-2);
+  margin-bottom: 8px;
+}
+.pfig__row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.pfig figure {
+  margin: 0;
+}
+.pfig img {
+  width: 100%;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--line);
+}
+.pfig figcaption,
+.pfig--map figcaption {
+  margin-top: 6px;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--ink-3);
+}
+
+/* ---------- what it cannot tell, and the way further ---------- */
+.passport__cannot {
+  margin-top: 20px;
+  padding: 14px 16px 15px;
+  border-radius: 14px;
+  background: rgb(12 17 19 / 0.05);
+}
+.passport__cannot h3 {
+  font-size: 13.5px;
+  font-weight: 650;
+  color: var(--ink-2);
+}
+.passport__cannot ul {
+  margin-top: 6px;
+  display: grid;
+  gap: 5px;
+  font-size: 14px;
+  line-height: 1.42;
+  color: var(--ink-2);
+}
+.passport__cannot li {
+  position: relative;
+  padding-left: 14px;
+  text-wrap: pretty;
+}
+.passport__cannot li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 7px;
+  border-top: 1.5px solid var(--ink-4);
+}
+.passport__full {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 60px;
+  padding: 10px 16px 10px 18px;
+  border-radius: 16px;
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+  transition:
+    transform 0.16s var(--ease-out),
+    background-color 0.2s ease;
+}
+.passport__full span {
+  display: grid;
+  gap: 1px;
+  flex: 1;
+}
+.passport__full b {
+  font-size: 15px;
+  font-weight: 650;
+}
+.passport__full small {
+  font-size: 13px;
+  color: rgb(240 235 223 / 0.72);
+}
+.passport__full svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.22s var(--ease-out);
+}
+.passport__full:active {
+  transform: scale(0.98);
+}
+@media (hover: hover) and (pointer: fine) {
+  .passport__full:hover svg {
+    transform: translateX(4px);
+  }
+}
+
+/* in the panel the portrait sits beside the name; on narrow panels it stays small */
+@media (max-width: 420px) {
+  .portrait--card {
+    width: 84px;
+  }
+  .pline__row {
+    grid-template-columns: 14px minmax(0, 1fr) 16px;
+  }
+  .pline__state {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .pline__chev {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
+}
+
+/* on the page of the lake the passport is a sheet of paper on the desk */
+.passport--page {
+  max-width: 760px;
+  padding: clamp(20px, 3.5vw, 36px);
+  border-radius: 22px;
+  background: var(--surface);
+  box-shadow:
+    0 0 0 1px var(--line),
+    0 30px 60px -40px rgb(12 17 19 / 0.4);
+}
+.passport--page .portrait--card {
+  width: clamp(104px, 22vw, 168px);
+}
+.passport--page .passport__lede {
+  font-size: clamp(1.45rem, 1.2rem + 0.8vw, 1.8rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pline__more,
+  .pline__chev {
+    transition: none;
+  }
+}
+
+/* the passport arrives in the panel: a short rise, never a jump. Returning to the list is instant. */
+.passport--panel {
+  transition:
+    opacity 0.22s var(--ease-out),
+    transform 0.28s var(--ease-out);
+}
+@starting-style {
+  .passport--panel {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .passport--panel {
+    transition: opacity 0.2s ease;
+  }
+  @starting-style {
+    .passport--panel {
+      transform: none;
+    }
+  }
+}

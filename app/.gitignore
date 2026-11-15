@@ -1,0 +1,5 @@
+node_modules
+dist
+*.local
+# synthetic data, rebuilt by: npm run mock
+public/mock

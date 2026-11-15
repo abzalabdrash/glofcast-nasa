@@ -1,0 +1,172 @@
+{
+ "generated": "2026-11-15T15:52:44Z",
+ "sources": [
+  {
+   "name": "NISAR L2 GCOV (Geocoded Polarimetric Covariance), frequency A, HH and HV, 20 m",
+   "agency": "NASA / ISRO (NASA JPL; distributed by ASF DAAC)",
+   "product": "NISAR_L2_GCOV_PROVISIONAL_V1, NISAR_L2_GCOV_V1",
+   "doi": "10.5067/NIL2GCOV-P1",
+   "url": "https://doi.org/10.5067/NIL2GCOV-P1",
+   "licence": "NASA open data policy, no restrictions",
+   "date_range": [
+    "2026-06-18",
+    "2026-10-25"
+   ],
+   "role": "L-band backscatter of every lake: look table, lake series, frames, Merzbacher curve"
+  },
+  {
+   "name": "Sentinel-1 IW GRD, VV and VH, 10 m",
+   "agency": "ESA / European Commission (Copernicus), via Google Earth Engine",
+   "product": "COPERNICUS/S1_GRD",
+   "doi": null,
+   "url": "https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S1_GRD",
+   "licence": "Copernicus Sentinel data terms (free, full and open)",
+   "date_range": [
+    "2026-06-01",
+    "2026-10-31"
+   ],
+   "role": "C-band backscatter of every lake: look table, lake series, Merzbacher curve"
+  },
+  {
+   "name": "Sentinel-2 MSI Level-1C, harmonized",
+   "agency": "ESA / European Commission (Copernicus), via Google Earth Engine",
+   "product": "COPERNICUS/S2_HARMONIZED",
+   "doi": null,
+   "url": "https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_HARMONIZED",
+   "licence": "Copernicus Sentinel data terms (free, full and open)",
+   "date_range": [
+    "2026-06-01",
+    "2026-10-31"
+   ],
+   "role": "optical water and clear shares per scene, true-colour frames, Merzbacher optics"
+  },
+  {
+   "name": "Cloud Score+ for Sentinel-2",
+   "agency": "Google",
+   "product": "GOOGLE/CLOUD_SCORE_PLUS/V1/S2_HARMONIZED",
+   "doi": null,
+   "url": "https://developers.google.com/earth-engine/datasets/catalog/GOOGLE_CLOUD_SCORE_PLUS_V1_S2_HARMONIZED",
+   "licence": "CC BY 4.0",
+   "date_range": [
+    "2026-06-01",
+    "2026-10-31"
+   ],
+   "role": "clear share of each Sentinel-2 scene"
+  },
+  {
+   "name": "Landsat 8 and 9 OLI/TIRS Collection 2 top of atmosphere",
+   "agency": "NASA / USGS, via Google Earth Engine",
+   "product": "LANDSAT/LC08/C02/T1_TOA, LANDSAT/LC09/C02/T1_TOA (tiers 1 and 2)",
+   "doi": null,
+   "url": "https://www.usgs.gov/landsat-missions/landsat-collection-2",
+   "licence": "public domain (USGS)",
+   "date_range": [
+    "2026-06-01",
+    "2026-09-29"
+   ],
+   "role": "Merzbacher optical looks, among them the empty basin of 18 Jul"
+  },
+  {
+   "name": "OPERA DSWx-HLS and DSWx-S1 (Dynamic Surface Water Extent), 30 m",
+   "agency": "NASA JPL OPERA, via Google Earth Engine",
+   "product": "OPERA_L3_DSWX-HLS_V1, OPERA_L3_DSWX-S1_V1 (Earth Engine OPERA/DSWX/L3_V1/HLS, OPERA/DSWX/L3_V1/S1)",
+   "doi": null,
+   "url": "https://www.jpl.nasa.gov/go/opera/products/dswx-product-suite/",
+   "licence": "NASA open data policy, no restrictions",
+   "date_range": [
+    "2026-07-01",
+    "2026-08-31"
+   ],
+   "role": "comparison of NASA water products with the lake series"
+  },
+  {
+   "name": "Copernicus DEM GLO-30",
+   "agency": "ESA / European Commission (Copernicus), via Google Earth Engine and AWS",
+   "product": "COPERNICUS/DEM/GLO30",
+   "doi": "10.5270/ESA-c5d3d65",
+   "url": "https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_DEM_GLO30",
+   "licence": "Copernicus DEM licence (free)",
+   "date_range": null,
+   "role": "slope of control polygons; layover and shadow at Merzbacher"
+  },
+  {
+   "name": "ERA5-Land daily aggregates, 2 m air temperature",
+   "agency": "ECMWF / Copernicus Climate Change Service, via Google Earth Engine",
+   "product": "ECMWF/ERA5_LAND/DAILY_AGGR",
+   "doi": "10.24381/cds.e2161bac",
+   "url": "https://developers.google.com/earth-engine/datasets/catalog/ECMWF_ERA5_LAND_DAILY_AGGR",
+   "licence": "Copernicus licence (free)",
+   "date_range": [
+    "2017-06-01",
+    "2026-08-15"
+   ],
+   "role": "temperature context at Merzbacher only"
+  },
+  {
+   "name": "MERIT Hydro v1.0.1 (flow directions, adjusted elevation, upstream area, water mask), 3 arc-seconds",
+   "agency": "Yamazaki et al. 2019 (University of Tokyo), via Google Earth Engine",
+   "product": "MERIT/Hydro/v1_0_1",
+   "doi": "10.1029/2019WR024873",
+   "url": "https://hydro.iis.u-tokyo.ac.jp/~yamadai/MERIT_Hydro/",
+   "licence": "CC BY-NC 4.0 or ODbL 1.0 (the user chooses); the flow-path file of this app is derived from it and published under ODbL 1.0",
+   "date_range": null,
+   "role": "flow path below each lake (people below)"
+  },
+  {
+   "name": "GHS-POP R2023A, residential population, epoch 2025, 100 m",
+   "agency": "European Commission, Joint Research Centre",
+   "product": "JRC/GHSL/P2023A/GHS_POP/2025",
+   "doi": "10.2905/2FF68A52-5B5B-4A22-8F40-C41DA8332CFE",
+   "url": "https://ghsl.jrc.ec.europa.eu/ghs_pop2023.php",
+   "licence": "CC BY 4.0",
+   "date_range": [
+    "2025-01-01",
+    "2025-12-31"
+   ],
+   "role": "people within 1 km of the river below each lake (a modelled projection, not a census)"
+  },
+  {
+   "name": "GeoNames populated places (dumps KZ, KG, cities500)",
+   "agency": "GeoNames",
+   "product": "download.geonames.org/export/dump",
+   "doi": null,
+   "url": "https://www.geonames.org/",
+   "licence": "CC BY 4.0",
+   "date_range": null,
+   "role": "names and populations of places along the flow paths"
+  },
+  {
+   "name": "OpenStreetMap",
+   "agency": "OpenStreetMap contributors",
+   "product": "Overpass API; names via the earlier GLOFcast name audit",
+   "doi": null,
+   "url": "https://www.openstreetmap.org/copyright",
+   "licence": "ODbL 1.0",
+   "date_range": null,
+   "role": "lake names, river names and the river check of the flow paths"
+  },
+  {
+   "name": "Method: Taylor et al. 2023, Glacial lake outburst floods threaten millions globally, Nature Communications 14, 487",
+   "agency": "Taylor, Robinson, Dunning, Carr, Westoby",
+   "product": "method (people within 1 km of the river, first 50 km)",
+   "doi": "10.1038/s41467-023-36033-x",
+   "url": "https://doi.org/10.1038/s41467-023-36033-x",
+   "licence": "CC BY 4.0",
+   "date_range": null,
+   "role": "method of the people-below indicator"
+  },
+  {
+   "name": "Glacial lake catalogue of the northern Tien Shan (659 polygons) with its 2018-2026 optical half-month record",
+   "agency": "the team's earlier project GLOFcast (earlier work, not made during the hackathon)",
+   "product": "data/lakes.geojson (GLOFcast, tag pre-spaceapps-2026)",
+   "doi": null,
+   "url": null,
+   "licence": "the team's own work",
+   "date_range": [
+    "2018-06-01",
+    "2026-10-31"
+   ],
+   "role": "lake polygons and the fixed list of 17 optical events of 2026"
+  }
+ ]
+}

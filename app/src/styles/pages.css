@@ -1,0 +1,235 @@
+/* SI-assisted (Claude), NASA Space Apps 2026 */
+
+/* ---------- landing ---------- */
+.hero {
+  display: grid;
+  gap: clamp(28px, 4vw, 56px);
+  padding-top: clamp(36px, 7vw, 88px);
+  padding-bottom: clamp(28px, 4vw, 48px);
+  align-items: center;
+}
+@media (min-width: 1000px) {
+  .hero {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  }
+}
+.hero__text {
+  display: grid;
+  gap: 22px;
+}
+.hero__cta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px 22px;
+  margin-top: 6px;
+}
+.hero__link {
+  font-size: 15px;
+  color: var(--ink-2);
+}
+.hero__figure {
+  display: grid;
+  gap: 10px;
+}
+.hero__maplink {
+  display: block;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  overflow: hidden;
+  transition: border-color 0.2s var(--ease);
+}
+.hero__maplink:hover {
+  border-color: var(--line-strong);
+}
+.hero__empty {
+  aspect-ratio: 720 / 430;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  color: var(--ink-3);
+  font-size: 14px;
+}
+.study {
+  width: 100%;
+  height: auto;
+}
+.study__grid line {
+  stroke: var(--line);
+  stroke-width: 1;
+}
+.study__grid text,
+.study__scale text {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  fill: var(--ink-3);
+}
+.study__lake {
+  fill: var(--cyan);
+  fill-opacity: 0.78;
+}
+.study__lake--event {
+  stroke: var(--event);
+  stroke-width: 1.4;
+  paint-order: stroke;
+  fill-opacity: 1;
+}
+.study__places rect {
+  fill: none;
+  stroke: var(--ink-2);
+  stroke-width: 1.2;
+}
+.study__places text {
+  font-size: 11px;
+  fill: var(--ink-2);
+}
+.study__places .study__water {
+  font-style: italic;
+  fill: var(--ink-3);
+}
+.study__region {
+  font-size: 12.5px;
+  font-weight: 600;
+  fill: var(--ink);
+  letter-spacing: -0.005em;
+}
+.study__count {
+  font-family: var(--mono);
+  font-size: 11px;
+  fill: var(--ink-3);
+}
+.study__regions text {
+  paint-order: stroke;
+  stroke: var(--surface);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+.study__scale line {
+  stroke: var(--ink-3);
+  stroke-width: 1;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.facts > div {
+  padding: 18px 16px 18px 0;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 4px;
+}
+.facts dt {
+  font-size: 13px;
+  color: var(--ink-3);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.facts dd {
+  font-family: var(--sans);
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  letter-spacing: -0.03em;
+  font-weight: 500;
+  line-height: 1.1;
+}
+.swatch--event {
+  background: transparent;
+  box-shadow: inset 0 0 0 2px var(--event);
+}
+
+.headline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+.headline {
+  padding: 22px 22px 20px;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  min-height: 150px;
+}
+.headline__value {
+  font-family: var(--sans);
+  font-size: clamp(2rem, 1.5rem + 1.6vw, 2.75rem);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+}
+.headline__unit {
+  font-size: 0.45em;
+  letter-spacing: 0;
+  color: var(--ink-3);
+}
+.headline__label {
+  font-size: 14.5px;
+  color: var(--ink-2);
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+.headline__label {
+  font-weight: 560;
+  color: var(--ink);
+}
+.headline--pending .headline__label {
+  font-weight: 400;
+  color: var(--ink-2);
+}
+.headline__line {
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+.headline__link {
+  font-size: 13px;
+  color: var(--ink-3);
+  margin-top: 2px;
+  justify-self: start;
+}
+.headline--pending {
+  background: transparent;
+  border-style: dashed;
+  border-color: var(--line-strong);
+}
+.headline__pending {
+  font-size: 13px;
+  color: var(--ink-3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.headline__pending::before {
+  content: '';
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line-strong);
+  border-right-color: var(--ink-3);
+}
+.doors {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+.door {
+  display: grid;
+  gap: 8px;
+  padding: 22px;
+  text-decoration: none;
+  transition:
+    border-color 0.2s var(--ease),
+    transform 0.2s var(--ease);
+}
+.door:hover {
+  border-color: var(--ink-3);
+}
+.door:active {
+  transform: scale(0.99);
+}

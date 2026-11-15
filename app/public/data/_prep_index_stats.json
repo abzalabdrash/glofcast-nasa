@@ -1,0 +1,20 @@
+{
+ "events_nisar": 200,
+ "events_s1": 482,
+ "lakes_nisar_event": 102,
+ "lakes_s1_event": 277,
+ "lakes_both": 67,
+ "timeline": {
+  "days": 130,
+  "lakes": 659,
+  "bytes": 596629
+ },
+ "lakes": 659,
+ "showcase": 117,
+ "showcase_by_reason": {
+  "optical_event": 17,
+  "events_both_radars": 67,
+  "pilot": 5,
+  "largest_40": 40
+ }
+}

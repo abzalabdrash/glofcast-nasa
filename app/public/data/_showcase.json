@@ -1,0 +1,720 @@
+{
+ "_comment": "Written by pipeline/prep_index.py; internal list for the frame scripts.",
+ "n": 117,
+ "lakes": [
+  {
+   "id": "ILE-0875",
+   "reasons": [
+    "pilot"
+   ]
+  },
+  {
+   "id": "ILE-0876",
+   "reasons": [
+    "events_both_radars",
+    "pilot"
+   ]
+  },
+  {
+   "id": "ILE-0878",
+   "reasons": [
+    "pilot",
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ILE-0886",
+   "reasons": [
+    "optical_event",
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ILE-0962",
+   "reasons": [
+    "events_both_radars",
+    "pilot"
+   ]
+  },
+  {
+   "id": "KYR-0243",
+   "reasons": [
+    "optical_event"
+   ]
+  },
+  {
+   "id": "TER-0007",
+   "reasons": [
+    "optical_event"
+   ]
+  },
+  {
+   "id": "TER-0012",
+   "reasons": [
+    "optical_event"
+   ]
+  },
+  {
+   "id": "TER-0013",
+   "reasons": [
+    "optical_event",
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "TER-0014",
+   "reasons": [
+    "optical_event",
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "TER-0016",
+   "reasons": [
+    "optical_event"
+   ]
+  },
+  {
+   "id": "TER-0017",
+   "reasons": [
+    "optical_event"
+   ]
+  },
+  {
+   "id": "TER-0018",
+   "reasons": [
+    "optical_event"
+   ]
+  },
+  {
+   "id": "TER-0070",
+   "reasons": [
+    "optical_event"
+   ]
+  },
+  {
+   "id": "TER-0106",
+   "reasons": [
+    "optical_event",
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "TER-0113",
+   "reasons": [
+    "optical_event"
+   ]
+  },
+  {
+   "id": "TER-0121",
+   "reasons": [
+    "optical_event",
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0170",
+   "reasons": [
+    "optical_event"
+   ]
+  },
+  {
+   "id": "ZHE-0299",
+   "reasons": [
+    "optical_event",
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0434",
+   "reasons": [
+    "optical_event"
+   ]
+  },
+  {
+   "id": "ZHE-0518",
+   "reasons": [
+    "optical_event",
+    "events_both_radars",
+    "pilot"
+   ]
+  },
+  {
+   "id": "ILE-0859",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ILE-0861",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ILE-0874",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ILE-0908",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ILE-0928",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ILE-0950",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ILE-0954",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ILE-0967",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ILE-0969",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ILE-0997",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ILE-1008",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ILE-1011",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ILE-1021",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ILE-1037",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "KYR-0169",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "KYR-0264",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "TER-0001",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "TER-0024",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "TER-0031",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "TER-0055",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "TER-0072",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "TER-0078",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "TER-0094",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "TER-0114",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "TER-0117",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "TER-0120",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "TER-0136",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "TER-0137",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "TER-0140",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "TER-0141",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0006",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0011",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0013",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0017",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0019",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0030",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0033",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0041",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0045",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0047",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0048",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0060",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0067",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0073",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0102",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0105",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0121",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0129",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0132",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0135",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0161",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0185",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0187",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0188",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0189",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0196",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0197",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0203",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0205",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0209",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0211",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0257",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0288",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0297",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0303",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0309",
+   "reasons": [
+    "events_both_radars",
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0314",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0322",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0324",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0339",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0361",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0383",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0385",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0394",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0397",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0412",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0420",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0425",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0435",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0440",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0441",
+   "reasons": [
+    "largest_40"
+   ]
+  },
+  {
+   "id": "ZHE-0447",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0479",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0481",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0494",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0497",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0538",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0544",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0553",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0565",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0567",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0569",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0570",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0571",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0584",
+   "reasons": [
+    "events_both_radars"
+   ]
+  },
+  {
+   "id": "ZHE-0585",
+   "reasons": [
+    "events_both_radars"
+   ]
+  }
+ ]
+}

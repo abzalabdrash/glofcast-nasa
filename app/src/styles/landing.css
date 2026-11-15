@@ -1,0 +1,635 @@
+/* SI-assisted (Claude), NASA Space Apps 2026 */
+/* The start page: night, seen from orbit, coming down to the paper of the map. */
+
+html.is-night body {
+  background: var(--night);
+}
+
+.sky {
+  position: relative;
+  height: 230vh;
+  background: var(--night);
+  color: var(--bone);
+}
+.sky__stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  --p: 0;
+}
+.sky__globe,
+.sky__globe .heroglobe,
+.sky__still,
+.sky__shade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+/* a still of the same view is on screen at once; the live globe takes its place when its tiles are in */
+.sky__still {
+  background: var(--night) url('/globe-still-wide.jpg') center / cover no-repeat;
+  transition: opacity 0.9s ease;
+  pointer-events: none;
+}
+.sky__still.is-gone {
+  opacity: 0;
+}
+.sky__shade {
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgb(5 8 10 / 0.9) 0%, rgb(5 8 10 / 0.62) 34%, rgb(5 8 10 / 0) 62%),
+    linear-gradient(0deg, rgb(5 8 10 / 0.5) 0%, rgb(5 8 10 / 0) 26%);
+  opacity: calc(1 - var(--p) * 1.5);
+}
+/* the credits of the imagery sit under the top bar, clear of the sentence and of the list */
+.sky .maplibregl-ctrl-bottom-right {
+  bottom: auto;
+  top: 68px;
+}
+.sky .maplibregl-ctrl-attrib.maplibregl-compact {
+  margin: 0 14px 0 0 !important;
+}
+
+/* the bar belongs to the sky: it stays through the descent and leaves with it */
+.sky__bar {
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding-top: max(8px, env(safe-area-inset-top));
+  padding-bottom: 8px;
+}
+
+/* ---------- the sentence ---------- */
+.sky__copy {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(calc(-46% - var(--p) * 60px));
+  opacity: calc(1 - var(--p) * 3.2);
+  pointer-events: none;
+}
+.sky__copy > * {
+  pointer-events: auto;
+}
+.sky.is-down .sky__copy > * {
+  pointer-events: none;
+}
+.sky__title {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(3.1rem, 1.4rem + 6.6vw, 6rem);
+  line-height: 0.96;
+  letter-spacing: -0.022em;
+  max-width: 9.5em;
+}
+.sky__title span {
+  display: block;
+}
+.sky__look {
+  color: var(--look-night);
+}
+.sky__sub {
+  margin-top: clamp(18px, 2.6vw, 30px);
+  max-width: 27em;
+  font-size: clamp(1rem, 0.94rem + 0.3vw, 1.16rem);
+  line-height: 1.5;
+  color: rgb(236 231 216 / 0.82);
+  text-wrap: pretty;
+}
+.sky__cta {
+  margin-top: clamp(22px, 3vw, 34px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 22px;
+}
+/* the one primary action. Pointing at it turns its label into what waits behind it. */
+.swapbtn {
+  display: inline-grid;
+  grid-template-columns: auto 18px;
+  align-items: center;
+  gap: 12px;
+  min-height: 54px;
+  padding: 0 22px 0 26px;
+  border-radius: 999px;
+  background: var(--bone);
+  color: var(--night);
+  font-size: 16.5px;
+  font-weight: 650;
+  letter-spacing: -0.005em;
+  text-decoration: none;
+  overflow: hidden;
+  transition:
+    transform 0.16s var(--ease-out),
+    background-color 0.22s ease;
+}
+.swapbtn__a,
+.swapbtn__b {
+  grid-area: 1 / 1;
+  white-space: nowrap;
+  transition:
+    transform 0.34s var(--ease-out),
+    opacity 0.24s ease,
+    filter 0.24s ease;
+}
+.swapbtn__b {
+  transform: translateY(120%);
+  opacity: 0;
+  filter: blur(3px);
+}
+.swapbtn svg {
+  grid-area: 1 / 2;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.34s var(--ease-out);
+}
+.swapbtn:active {
+  transform: scale(0.97);
+}
+@media (hover: hover) and (pointer: fine) {
+  .swapbtn:hover {
+    background: #fffaf0;
+  }
+  .swapbtn:hover .swapbtn__a {
+    transform: translateY(-120%);
+    opacity: 0;
+    filter: blur(3px);
+  }
+  .swapbtn:hover .swapbtn__b {
+    transform: none;
+    opacity: 1;
+    filter: none;
+  }
+  .swapbtn:hover svg {
+    transform: translateX(4px);
+  }
+}
+.swapbtn:focus-visible,
+.sky__more:focus-visible {
+  outline-color: var(--bone);
+}
+.sky__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 0 6px;
+  border: 0;
+  background: none;
+  color: rgb(236 231 216 / 0.82);
+  font-size: 15px;
+  transition: color 0.15s ease;
+}
+.sky__more svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.3s var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .sky__more:hover {
+    color: var(--bone);
+  }
+  .sky__more:hover svg {
+    transform: translateY(3px);
+  }
+}
+
+/* ---------- down at the lakes: the list of the week arrives on bone ---------- */
+.sky__dock {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: clamp(12px, 2.4vh, 26px);
+  display: grid;
+  justify-items: center;
+  padding: 0 clamp(10px, 2vw, 24px);
+  color: var(--ink);
+  opacity: 0;
+  transform: translateY(36px);
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease,
+    transform 0.55s var(--ease-out);
+}
+.sky.is-down .sky__dock {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+.dock {
+  width: min(1120px, 100%);
+  padding: 16px 18px 16px 22px;
+  border-radius: 24px;
+  background: rgb(245 241 232 / 0.88);
+  --mark-accent: var(--look);
+}
+.dock__head {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
+  gap: 24px;
+  align-items: center;
+}
+.dock__title {
+  display: grid;
+  gap: 2px;
+}
+.dock__title b {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(1.7rem, 1.3rem + 1.2vw, 2.3rem);
+  line-height: 1.05;
+  letter-spacing: -0.012em;
+}
+.dock__title span {
+  font-size: 15px;
+  color: var(--ink-2);
+}
+.dock .ruler {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+.dock__lakes {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line-strong);
+}
+.dock__lakes > li + li {
+  border-left: 1px solid var(--line);
+}
+.dlake {
+  display: flex;
+  gap: 14px;
+  height: 100%;
+  padding: 14px 14px 12px;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 14px;
+  transition:
+    background-color 0.15s ease,
+    transform 0.16s var(--ease-out);
+}
+.dock__lakes > li:first-child .dlake {
+  padding-left: 0;
+}
+.dlake:active {
+  transform: scale(0.985);
+}
+.dlake .portrait--card {
+  width: 92px;
+}
+.dlake__text {
+  display: grid;
+  align-content: start;
+  gap: 2px;
+  min-width: 0;
+}
+.dlake__name {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1.08;
+}
+.dlake__meta {
+  font-size: 13px;
+  color: var(--ink-3);
+}
+.dlake__why {
+  position: relative;
+  margin-top: 5px;
+  padding-left: 15px;
+  font-size: 14px;
+  line-height: 1.4;
+  text-wrap: pretty;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
+}
+.dlake__why::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.46em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--look);
+}
+.dlake__more {
+  padding-left: 15px;
+  font-size: 13px;
+  color: var(--ink-3);
+}
+@media (hover: hover) and (pointer: fine) {
+  .dlake:hover .dlake__name {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.16em;
+  }
+}
+.dock__none {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-strong);
+  font-family: var(--display);
+  font-size: 1.3rem;
+  color: var(--ink-2);
+}
+.dock__foot {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+}
+.dock__key {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: var(--ink-3);
+}
+.dock__key i {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff6a45;
+  box-shadow: 0 0 0 1px var(--ink);
+}
+
+/* a phone: the Earth above, the sentence below; down at the lakes the list is a sheet at the bottom */
+@media (max-width: 899px) {
+  .sky__shade {
+    background: linear-gradient(0deg, rgb(5 8 10 / 0.94) 0%, rgb(5 8 10 / 0.8) 38%, rgb(5 8 10 / 0) 64%);
+  }
+  .sky__copy {
+    top: auto;
+    bottom: clamp(22px, 5vh, 44px);
+    transform: translateY(calc(var(--p) * -40px));
+  }
+  .sky__sub {
+    font-size: 1rem;
+  }
+  .sky__still {
+    background-image: url('/globe-still-phone.jpg');
+  }
+  .sky__dock {
+    bottom: 0;
+    padding: 0;
+  }
+  .dock {
+    border-radius: 22px 22px 0 0;
+    padding: 14px 14px calc(14px + env(safe-area-inset-bottom));
+  }
+  .dock__head {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+  .dock__title {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .dock__title b {
+    font-size: 1.5rem;
+  }
+  .dock__title span {
+    font-size: 14px;
+    color: var(--ink-3);
+  }
+  .dock .ruler__label {
+    display: none;
+  }
+  .dock .ruler {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .dock .ruler__track {
+    height: 52px;
+  }
+  .dock__lakes {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 8px;
+  }
+  .dock__lakes > li + li {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+  .dlake,
+  .dock__lakes > li:first-child .dlake {
+    padding: 10px 0;
+  }
+  .dlake .portrait--card {
+    width: 64px;
+  }
+  .dlake__name {
+    font-size: 1.3rem;
+  }
+  .dlake__why {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+  .dlake__more {
+    display: none;
+  }
+  .dock__foot .btn {
+    flex: 1;
+  }
+  .dock__key {
+    display: none;
+  }
+}
+
+/* reduced motion: no flight. The sentence, then the list, as two plain parts of a page. */
+.sky--still {
+  height: auto;
+}
+.sky--still .sky__stage {
+  position: relative;
+  height: auto;
+  min-height: 100svh;
+  display: grid;
+  align-content: end;
+  gap: 32px;
+  padding: 120px 0 24px;
+}
+.sky--still .sky__bar {
+  top: 0;
+}
+.sky--still .sky__copy,
+.sky--still .sky__dock {
+  position: relative;
+  inset: auto;
+  top: auto;
+  bottom: auto;
+  transform: none;
+  opacity: 1;
+  pointer-events: auto;
+}
+.sky--still .sky__copy > * {
+  pointer-events: auto;
+}
+.sky--still .sky__shade {
+  opacity: 1;
+}
+
+/* ---------- below: paper ---------- */
+.paper {
+  position: relative;
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 28px 28px 0 0;
+  margin-top: -28px;
+  padding-top: 1px;
+}
+.proof {
+  padding-top: clamp(56px, 9vw, 120px);
+}
+.proof__h,
+.close__h {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(2.3rem, 1.5rem + 3.4vw, 4.2rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  max-width: 14em;
+}
+.proof__h em,
+.close__h em {
+  font-style: italic;
+}
+.proof__grid {
+  margin-top: clamp(28px, 4vw, 48px);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(28px, 5vw, 72px);
+  border-top: 1px solid var(--line-strong);
+}
+.proof__grid li {
+  border-bottom: 1px solid var(--line);
+}
+.proof__grid a {
+  display: grid;
+  gap: 6px;
+  height: 100%;
+  align-content: start;
+  padding: clamp(22px, 3vw, 34px) 0 clamp(22px, 3vw, 30px);
+  text-decoration: none;
+  color: inherit;
+}
+.proof__value {
+  font-family: var(--display);
+  font-size: clamp(2.3rem, 1.6rem + 2.6vw, 3.6rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.proof__label {
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.35;
+  max-width: 28em;
+}
+.proof__line {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  max-width: 34em;
+  text-wrap: pretty;
+}
+.proof__more {
+  margin-top: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.proof__more svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.3s var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .proof__grid a:hover .proof__more svg {
+    transform: translateX(4px);
+  }
+  .proof__grid a:hover .proof__value {
+    color: var(--look);
+  }
+}
+.proof__value {
+  transition: color 0.2s ease;
+}
+.close {
+  padding-top: clamp(72px, 11vw, 150px);
+  padding-bottom: clamp(24px, 4vw, 48px);
+}
+.close__sub {
+  margin-top: 18px;
+  max-width: 40em;
+  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.15rem);
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+.close__go {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 30px;
+}
+.close__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 24px;
+  font-size: 15px;
+}
+.close__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ink-2);
+}
+@media (max-width: 720px) {
+  .proof__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .close__links {
+    display: grid;
+    gap: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .swapbtn__a,
+  .swapbtn__b,
+  .swapbtn svg,
+  .sky__dock {
+    transition: none;
+  }
+}

@@ -1,0 +1,176 @@
+{
+ "lake_id": "TER-0111",
+ "glacier_rgi_id": "RGI2000-v7.0-G-13-27819",
+ "glacier_name": "CN5Y673P0037 Tuomuer Glacier",
+ "product": "NISAR L2 GOFF provisional (NISAR_L2_GOFF_PROVISIONAL_V1), HH, 80 m, raw pixel offsets",
+ "orbit": "135D",
+ "pass": "descending",
+ "radar_looks": "left",
+ "ground_direction_to_sensor_deg": 290.9,
+ "incidence_deg": 45.709,
+ "season": [
+  "20260623",
+  "20261021"
+ ],
+ "quantity": "apparent speed in the radar plane (slant range and along track), per-cell median over the pairs, relative to stable ground near the lake; a lower bound of the surface speed",
+ "unit": "m per day",
+ "range_m_per_day": [
+  0.0,
+  0.15
+ ],
+ "colormap": "matplotlib viridis",
+ "images": {
+  "layer1": {
+   "file": "TER-0111.png",
+   "pairs": [
+    [
+     "20260623",
+     "20260705"
+    ],
+    [
+     "20260705",
+     "20260717"
+    ],
+    [
+     "20260717",
+     "20260810"
+    ],
+    [
+     "20260810",
+     "20260822"
+    ],
+    [
+     "20260822",
+     "20260903"
+    ],
+    [
+     "20260903",
+     "20260915"
+    ],
+    [
+     "20260915",
+     "20260927"
+    ],
+    [
+     "20260927",
+     "20261009"
+    ],
+    [
+     "20261009",
+     "20261021"
+    ]
+   ],
+   "n_pairs": 9,
+   "days": [
+    12,
+    24
+   ],
+   "tracking_window_input_pixels": "32 slant range x 32 along track",
+   "share_of_glacier_zone_cells_shown": 0.91,
+   "glacier_zone_cell_values_m_per_day": {
+    "p5": 0.017,
+    "median": 0.073,
+    "p95": 0.107
+   }
+  },
+  "layer3": {
+   "file": "TER-0111_layer3.png",
+   "pairs": [
+    [
+     "20260623",
+     "20260705"
+    ],
+    [
+     "20260705",
+     "20260717"
+    ],
+    [
+     "20260717",
+     "20260810"
+    ],
+    [
+     "20260810",
+     "20260822"
+    ],
+    [
+     "20260822",
+     "20260903"
+    ],
+    [
+     "20260903",
+     "20260915"
+    ],
+    [
+     "20260915",
+     "20260927"
+    ],
+    [
+     "20260927",
+     "20261009"
+    ],
+    [
+     "20261009",
+     "20261021"
+    ]
+   ],
+   "n_pairs": 9,
+   "days": [
+    12,
+    24
+   ],
+   "tracking_window_input_pixels": "64 slant range x 128 along track",
+   "share_of_glacier_zone_cells_shown": 1.0,
+   "glacier_zone_cell_values_m_per_day": {
+    "p5": 0.008,
+    "median": 0.07,
+    "p95": 0.099
+   }
+  }
+ },
+ "grey_where": "plain relief where tracking failed: the cell is above 0.8 m per day in more than a quarter of the pairs, or fewer than half of the pairs are finite. Where the ground is still the colour fades into the relief (opacity 0.15 at zero, 0.9 from 30% of the range upwards)",
+ "lines": "lake outline white; glacier zone of the plan (cells at least 150 m inside the RGI 7.0 outline, within 1,500 m of the lake) thin black; other catalogue lakes thin white",
+ "glacier_zone": {
+  "status": "moves measurably",
+  "note": null,
+  "apparent_speed_m_per_day": 0.0584,
+  "noise_floor_m_per_day": 0.0115,
+  "usable_pairs": 9.0,
+  "flow_azimuth_deg": 240.0,
+  "horizontal_speed_m_per_day_if_surface_parallel": 0.0824,
+  "orbits_m_per_day": "034D:0.057;098A:0.070;135D:0.058",
+  "agreeing_orbits_flow_azimuth": "098A:244;135D:236",
+  "reference": "stable zone of the plan"
+ },
+ "image": {
+  "width_px": 880,
+  "height_px": 896,
+  "cell_m": 80,
+  "north_up": true,
+  "epsg": 32644,
+  "utm_bounds": [
+   412320.0,
+   4638560.0,
+   416720.0,
+   4643040.0
+  ],
+  "corners_lonlat_ul_ur_lr_ll": [
+   [
+    79.942379,
+    41.934458
+   ],
+   [
+    79.995445,
+    41.934934
+   ],
+   [
+    79.996078,
+    41.89459
+   ],
+   [
+    79.943045,
+    41.894114
+   ]
+  ]
+ },
+ "limits": "SI-assisted analysis, not checked by a person. Motion of glacier ice over one season, not a forecast of anything. Speeds are in the radar plane and never called faster than usual: NISAR has no earlier season."
+}
